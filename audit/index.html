@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bepul CSV audit — Dengiz</title>
+<meta name="description" content="Meta Ads Manager eksportini yuklang: reklamangiz qayerda pul yo'qotayotganini bepul ko'rsatamiz. Fayl brauzerda tahlil qilinadi.">
+<meta name="theme-color" content="#0A2F6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/audit/audit.css">
+</head>
+<body>
+<nav id="nav"><div class="navwrap nav-in">
+  <a href="/" class="logo"><span class="mark"><i></i><i></i><i></i></span>Dengiz</a>
+  <div class="links"><a href="/#qanday" data-k="n1">Qanday ishlaydi</a><a href="/#xavfsiz" data-k="n2">Xavfsizlik</a><a href="/#pilot" data-k="n3">Pilot</a><a href="/#savol" data-k="n4">Savollar</a><a href="/audit/" class="on" data-k="n5">Bepul audit</a></div>
+  <div class="right"><div class="lang" id="lang"><button data-l="uz" class="on" type="button">UZ</button><button data-l="ru" type="button">RU</button></div><a href="/" class="home" data-k="home">← Bosh sahifa</a><a href="/kirish/#royxat" class="navbtn" data-k="navbtn">Bepul boshlash</a></div>
+</div></nav>
+
+<header><div class="wrap">
+  <p class="eyebrow" data-k="eyebrow">Bepul CSV audit · Meta Ads · 2 daqiqa</p>
+  <h1 data-kh="h1">Reklamangiz qayerda <em>pul yo‘qotyapti?</em></h1>
+  <p data-k="sub">Ads Manager eksportini yuklang. Tahlil sizning brauzeringizda bo‘ladi, fayl hech qayerga yuborilmaydi.</p>
+</div></header>
+
+<main class="wrap">
+  <section class="card" id="step1">
+    <h2 data-k="s1h">1. Ads Manager’dan CSV oling</h2>
+    <ol class="how">
+      <li data-kh="how1">Ads Manager → kerakli sana oralig‘ini tanlang (masalan, oxirgi 30 kun).</li>
+      <li data-kh="how2"><b>Reklamalar</b> (Ads) darajasini oching.</li>
+      <li data-kh="how3">Ustunlar: “Performance” va video ko‘rsatkichlari (3 soniyalik ko‘rish, 25/50/75/100%) bo‘lsa yaxshi.</li>
+      <li data-kh="how4">Xohlasangiz <b>Breakdown → Age</b> (yoki Region, Placement) qo‘shing. Chuqurroq tahlil uchun <b>Time → Day</b> (uzilishlar, ichki raqobat) yoki <b>Time of day</b> (tungi arizalar) ham qo‘shing.</li>
+      <li data-kh="how5"><b>Export → Export table data → CSV</b>.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2 data-k="s2h">2. Faylni yuklang</h2>
+    <label class="drop" id="drop" for="file"><b data-k="drop1">CSV faylni shu yerga tashlang</b><span data-k="drop2">yoki bosib tanlang</span></label>
+    <input type="file" id="file" accept=".csv,text/csv" class="hidden">
+    <p class="privacy" data-k="privacy">Fayl serverga yuklanmaydi. Hisobot ochilganda faqat qisqa xulosa raqamlari (jami xarajat, natija soni, topilmalar nomi) va kontaktingiz yuboriladi.</p>
+    <p class="err" id="err"></p>
+  </section>
+
+  <section id="report" class="hidden">
+    <div class="card">
+      <h2 data-k="kpiH">Umumiy holat</h2>
+      <div class="kpis" id="kpis"></div>
+      <p class="src" id="src"></p>
+    </div>
+    <div class="card">
+      <h2 data-k="findH">Topilmalar</h2>
+      <div id="free"></div>
+      <div id="lockwrap" class="locked">
+        <div class="blur" id="rest"></div>
+        <form class="gate" id="gate" novalidate>
+          <h2 style="font-size:1.25rem" data-k="gateH">To‘liq hisobotni oching</h2>
+          <p class="src" style="margin-bottom:12px" data-k="gateP">Barcha topilmalar, segmentlar va reklamalar jadvali. Bepul.</p>
+          <div class="row">
+            <div><label for="gn" data-k="gn">Ismingiz</label><input id="gn" name="name" maxlength="120" autocomplete="name"></div>
+            <div><label for="gp" data-k="gp">Telefon raqamingiz</label><input id="gp" name="phone" type="tel" inputmode="tel" maxlength="25" autocomplete="tel" placeholder="+998 90 123 45 67"></div>
+          </div>
+          <div class="row">
+            <div><label for="gt"><span data-k="gt">Telegram username</span><span class="opt" data-k="opt">ixtiyoriy</span></label><input id="gt" name="telegram" maxlength="64" autocomplete="off" placeholder="@username"></div>
+            <div><label for="gb"><span data-k="gb">Biznes nomi</span><span class="opt" data-k="opt">ixtiyoriy</span></label><input id="gb" name="business" maxlength="160"></div>
+          </div>
+          <input class="hp" type="checkbox" name="website" tabindex="-1" aria-hidden="true">
+          <button class="btn full" id="gs" type="submit" data-k="gs">Hisobotni ochish</button>
+          <p class="err" id="gerr"></p>
+        </form>
+      </div>
+    </div>
+    <div id="full" class="hidden">
+      <div class="card" id="segcard"></div>
+      <div class="card"><h2 data-k="entsH">Reklamalar (xarajat bo‘yicha)</h2><div class="tw"><table id="ents"></table></div></div>
+      <div class="card"><h2 data-k="missH">Bu faylda nima yo‘q</h2><ul id="missing" style="margin-left:18px;color:var(--muted)"></ul></div>
+    </div>
+    <div class="card cta">
+      <h2 data-k="ctaH">Bepul chuqur audit (API)</h2>
+      <p data-k="ctaP">Reklama akkauntiga faqat ko‘rish huquqini bersangiz, o‘sha kunning o‘zida soniyalab video tahlili, kim nimani o‘zgartirgani va sifatli lid narxi bilan to‘liq audit qilamiz. Har bir biznesga bir marta bepul.</p>
+      <a class="btn" href="/#pilot" style="background:#fff;color:var(--deep)" data-k="ctaBtn">Chuqur auditga yozilish</a>
+    </div>
+  </section>
+</main>
+
+<script src="/config.js"></script>
+<script src="/phone.js"></script>
+<script src="/audit/csv-audit.js"></script>
+<script src="/audit/audit.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kabinet — Dengiz</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A2F6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cab.css">
+<script>
+// Kirmagan bo'lsa kabinet umuman ko'rsatilmaydi; chiqqandan keyin "Orqaga" bosilsa ham (bfcache) kirish sahifasiga qaytariladi
+(function () {
+  var has = function () { try { return !!localStorage.getItem('dg_auth'); } catch (e) { return false; } };
+  if (!has()) location.replace('/kirish/');
+  window.addEventListener('pageshow', function (e) { if (e.persisted && !has()) location.replace('/kirish/'); });
+})();
+</script>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a href="/kabinet/" class="logo"><span class="mark"><i></i><i></i><i></i></span>Dengiz</a>
+  <span></span>
+  <div class="who"><span id="uname"></span><button class="btn sm ghost" id="out" type="button">Chiqish</button></div>
+</div></header>
+
+<div id="loading" class="loading">Yuklanmoqda…</div>
+
+<div id="app" class="hidden">
+  <section class="hero2"><div class="wrapc">
+    <p class="eyebrow" style="color:#14B8C4">Shaxsiy kabinet</p>
+    <h1 id="hello">Salom</h1>
+    <p id="bizline"></p>
+    <div class="chips"><span class="chip" id="c-role"></span><span class="chip" id="c-ai">AI rejimi: xabar beradi, qaror sizda</span><span class="chip">Tarif: pilot, to‘lovsiz</span></div>
+  </div></section>
+
+  <nav class="tabs2"><div class="tabs2-in" id="tabs">
+    <button data-t="dash" class="on">Dashboard</button>
+    <button data-t="ads">Reklama berish</button>
+    <button data-t="leads">Mijozlar</button>
+    <button data-t="alerts">Ogohlantirishlar<span class="cnt hidden" id="acnt"></span></button>
+    <button data-t="chat">Chat</button>
+    <button data-t="audit">AI tahlil</button>
+    <button data-t="set">Ulanishlar</button>
+    <button data-t="admin" class="hidden" id="tab-admin">Admin</button>
+  </div></nav>
+
+  <main class="mainc">
+    <div id="topnote"></div>
+    <div id="onb"></div>
+    <section class="panel on" id="p-dash"></section>
+    <section class="panel" id="p-ads"></section>
+    <section class="panel" id="p-leads"></section>
+    <section class="panel" id="p-alerts"></section>
+    <section class="panel" id="p-chat"></section>
+    <section class="panel" id="p-audit"></section>
+    <section class="panel" id="p-set"></section>
+    <section class="panel" id="p-admin"></section>
+  </main>
+</div>
+
+<div class="modalbg" id="modal"><div class="modal" id="modal-in"></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="/config.js"></script>
+<script src="/auth.js"></script>
+<script src="/kabinet/common.js"></script>
+<script src="/kabinet/dash.js"></script>
+<script src="/kabinet/panels.js"></script>
+<script src="/kabinet/ads.js"></script>
+<script src="/kabinet/kabinet.js"></script>
+</body>
+</html>

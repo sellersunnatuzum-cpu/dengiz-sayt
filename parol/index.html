@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parolni tiklash — Dengiz</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A2F6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cab.css">
+</head>
+<body class="authpage">
+<div class="atop"><a href="/" class="logo"><span class="mark"><i></i><i></i><i></i></span>Dengiz</a><a href="/kirish/" class="home">← Kirish</a></div>
+<div class="acenter">
+  <div class="acard">
+    <form id="f1" novalidate>
+      <h1>Parolni tiklash</h1>
+      <p class="sub">Email yoki telefon raqamingizni yozing. Havolani Telegram botga yuboramiz (Telegram ulanmagan bo‘lsa, emailga).</p>
+      <div class="f"><label for="em">Email yoki telefon</label><input id="em" type="text" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="email yoki +998 90 123 45 67" required></div>
+      <button class="btn full" id="b1" type="submit">Havola yuborish</button>
+      <p class="msg" id="m1" role="status"></p>
+    </form>
+    <form id="f2" class="hidden" novalidate>
+      <h1>Yangi parol</h1>
+      <p class="sub">Kamida 8 belgidan iborat yangi parol kiriting.</p>
+      <div class="f"><label for="pw">Yangi parol</label><input id="pw" type="password" autocomplete="new-password" minlength="8" maxlength="72" required></div>
+      <button class="btn full" id="b2" type="submit">Parolni saqlash</button>
+      <p class="msg" id="m2" role="status"></p>
+    </form>
+  </div>
+</div>
+<script src="/config.js"></script>
+<script src="/auth.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const say = (el, t, c = 'err') => { el.textContent = t; el.className = 'msg ' + c; };
+const SB = window.DENGIZ_SB;
+const fn = (body) => fetch(SB.url + '/functions/v1/auth-reset', { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: SB.key }, body: JSON.stringify(body) });
+
+// Telegram havolasi (?t=...) yoki email havolasi (#access_token=...&type=recovery)
+const qs = new URLSearchParams(location.search), hs = new URLSearchParams(location.hash.slice(1));
+const tgToken = /^[0-9a-f]{48}$/.test(qs.get('t') || '') ? qs.get('t') : null;
+const mailToken = hs.get('type') === 'recovery' ? hs.get('access_token') : null;
+if (tgToken || mailToken) { $('f1').classList.add('hidden'); $('f2').classList.remove('hidden'); history.replaceState(null, '', location.pathname); }
+else if (hs.get('error_description')) say($('m1'), 'Havola eskirgan yoki allaqachon ishlatilgan. Yangisini so‘rang.');
+
+$('f1').addEventListener('submit', async e => {
+  e.preventDefault();
+  const id = $('em').value.trim();
+  if (id.length < 5) return say($('m1'), 'Email yoki telefon raqamingizni yozing.');
+  $('b1').disabled = true;
+  try {
+    const r = await fn({ action: 'request', identifier: id });
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 429) say($('m1'), 'Juda ko‘p urinish. Biroz kutib, qayta urining.');
+    else if (!r.ok) say($('m1'), 'Yuborib bo‘lmadi. Birozdan keyin urinib ko‘ring.');
+    else say($('m1'), j.via === 'email' ? 'Havola emailga yuborildi. Pochtangizni (va Spam papkasini) tekshiring.' : j.via === 'telegram' ? 'Havola Telegram botga yuborildi. Botni oching va «Yangi parol o‘rnatish» tugmasini bosing.' : 'Agar bunday hisob bo‘lsa, havola yuborildi: Telegram botni yoki emailni tekshiring.', 'ok');
+  } catch (err) { say($('m1'), 'Aloqa xatosi. Internetni tekshirib, qayta urinib ko‘ring.'); }
+  $('b1').disabled = false;
+});
+
+$('f2').addEventListener('submit', async e => {
+  e.preventDefault();
+  const pw = $('pw').value;
+  if (pw.length < 8) return say($('m2'), 'Parol kamida 8 belgidan iborat bo‘lsin.');
+  $('b2').disabled = true;
+  try {
+    let ok = false;
+    if (tgToken) {
+      const r = await fn({ action: 'confirm', token: tgToken, password: pw });
+      const j = await r.json().catch(() => ({}));
+      ok = r.ok;
+      if (!ok) { say($('m2'), r.status === 410 ? 'Havola eskirgan yoki ishlatilgan. Yangisini so‘rang.' : j.error === 'weak_password' ? 'Parol kamida 8 belgidan iborat bo‘lsin.' : 'Parolni yangilab bo‘lmadi. Qayta urinib ko‘ring.'); }
+    } else {
+      const r = await fetch(SB.url + '/auth/v1/user', { method: 'PUT', headers: { 'Content-Type': 'application/json', apikey: SB.key, Authorization: 'Bearer ' + mailToken }, body: JSON.stringify({ password: pw }) });
+      ok = r.ok;
+      if (!ok) say($('m2'), 'Parolni yangilab bo‘lmadi. Havola eskirgan bo‘lishi mumkin, yangisini so‘rang.');
+    }
+    if (ok) { say($('m2'), 'Parol yangilandi. Kirish sahifasiga o‘tilmoqda…', 'ok'); setTimeout(() => location.href = '/kirish/', 1200); return; }
+  } catch (err) { say($('m2'), 'Aloqa xatosi. Qayta urinib ko‘ring.'); }
+  $('b2').disabled = false;
+});
+</script>
+</body>
+</html>

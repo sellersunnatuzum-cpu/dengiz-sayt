@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kirish — Dengiz</title>
+<meta name="theme-color" content="#0A2F6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cab.css">
+</head>
+<body class="authpage">
+<div class="atop"><a href="/" class="logo"><span class="mark"><i></i><i></i><i></i></span>Dengiz</a><a href="/" class="home">← Bosh sahifa</a></div>
+<div class="acenter">
+  <div class="acard">
+    <h1 id="ttl">Shaxsiy kabinetga kiring</h1>
+    <p class="sub" id="sub">Reklamangiz holati, ogohlantirishlar va hisobotlar bir joyda.</p>
+    <div class="tabs" role="tablist"><button id="tl" class="on" type="button">Kirish</button><button id="ts" type="button">Ro‘yxatdan o‘tish</button></div>
+
+    <form id="fl" novalidate>
+      <div class="f"><label for="le">Email yoki telefon</label><input id="le" type="text" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="email yoki +998 90 123 45 67" required></div>
+      <div class="f"><label for="lp">Parol</label><input id="lp" type="password" autocomplete="current-password" required></div>
+      <button class="btn full" id="bl" type="submit">Kirish</button>
+      <p class="msg" id="ml" role="status"></p>
+      <p class="trust"><a href="/parol/" style="color:var(--blue);font-weight:600">Parolni unutdingizmi?</a></p>
+    </form>
+
+    <form id="fs" class="hidden" novalidate>
+      <div class="row">
+        <div class="f"><label for="sn">Ismingiz</label><input id="sn" autocomplete="name" maxlength="120" required></div>
+        <div class="f"><label for="sph">Telefon raqamingiz<span class="opt">ixtiyoriy</span></label><input id="sph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+998 90 123 45 67" maxlength="25"></div>
+      </div>
+      <div class="f"><label for="se">Email</label><input id="se" type="email" autocomplete="email" required></div>
+      <div class="row">
+        <div class="f"><label for="stg">Telegram username<span class="opt">ixtiyoriy</span></label><input id="stg" placeholder="@username" maxlength="64" autocomplete="off"></div>
+        <div class="f"><label for="sb">Biznes nomi<span class="opt">ixtiyoriy</span></label><input id="sb" maxlength="160" autocomplete="organization"></div>
+      </div>
+      <div class="f"><label for="sp">Parol (kamida 8 belgi)</label><input id="sp" type="password" autocomplete="new-password" minlength="8" maxlength="72" required></div>
+      <input class="hp" type="checkbox" id="shp" tabindex="-1" aria-hidden="true">
+      <button class="btn full" id="bs" type="submit">Hisob yaratish</button>
+      <p class="msg" id="ms" role="status"></p>
+    </form>
+    <p class="trust">Telefonni keyin Telegram orqali bir bosishda tasdiqlaysiz. Hisob bepul. Parolingiz shifrlangan holda saqlanadi, Meta parolingiz so‘ralmaydi.</p>
+  </div>
+</div>
+<script src="/config.js"></script>
+<script src="/phone.js"></script>
+<script src="/auth.js"></script>
+<script src="/kirish/kirish.js"></script>
+</body>
+</html>

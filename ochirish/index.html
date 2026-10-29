@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma'lumotni o'chirish — Dengiz</title>
+<meta name="description" content="Dengiz'dagi ma'lumotlaringizni qanday o'chirtirish mumkin.">
+<meta name="theme-color" content="#0A2F6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/cab.css">
+<style>
+.doc{width:min(780px,100% - 32px);margin:0 auto;padding:36px 0 80px}
+.doc h1{font-size:2.1rem;margin-bottom:6px}
+.doc h2{font-size:1.25rem;margin:28px 0 8px}
+.doc p,.doc li{color:var(--ink);font-size:.97rem;margin-bottom:8px}
+.doc ol,.doc ul{margin:0 0 8px 22px}
+.doc a{color:var(--blue);font-weight:600}
+.langs{display:flex;gap:8px;margin-bottom:18px}
+.langs a{border:1.5px solid var(--line);border-radius:999px;padding:5px 14px;font-weight:700;font-size:.82rem;color:var(--muted)}
+.langs a.on{background:var(--deep);border-color:var(--deep);color:#fff}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in"><a href="/" class="logo"><span class="mark"><i></i><i></i><i></i></span>Dengiz</a><nav><a href="/">Bosh sahifa</a></nav><span></span></div></header>
+
+<main class="doc">
+  <div class="langs"><a href="#uz" class="on" id="l-uz">O‘zbekcha</a><a href="#en" id="l-en">English</a></div>
+
+  <section id="uz">
+    <h1>Ma‘lumotni o‘chirish</h1>
+    <p>Dengiz’dagi ma‘lumotlaringizni istalgan vaqt o‘chirtirishingiz mumkin. Buning uchun:</p>
+    <ol>
+      <li><a href="mailto:sellersunnatuzum@gmail.com?subject=Ma%E2%80%98lumotni%20o%E2%80%98chirish">sellersunnatuzum@gmail.com</a> manziliga «Ma‘lumotni o‘chirish» mavzusi bilan xat yozing.</li>
+      <li>Xatda ro‘yxatdan o‘tgan <b>email</b> va <b>telefon raqamingizni</b> yozing, shunda hisobingizni aniqlaymiz.</li>
+      <li>So‘rovni qabul qilganimizni 3 ish kuni ichida tasdiqlaymiz va ma‘lumotlaringizni <b>30 kun ichida</b> o‘chiramiz.</li>
+    </ol>
+    <h2>Nima o‘chiriladi</h2>
+    <ul>
+      <li>Hisob ma‘lumoti (ism, email, telefon, Telegram, biznes).</li>
+      <li>Meta reklama akkauntidan yuklangan statistika va o‘zgarishlar jurnali.</li>
+      <li>CRM’dan kelgan sotuv bosqichi yozuvlari va ulanish tokenlari.</li>
+      <li>Telegram bildirishnoma ulanishi va saqlangan CAPI kalitlari.</li>
+    </ul>
+    <h2>Meta ruxsatini o‘zingiz bekor qilish</h2>
+    <p>Business Manager → Business Settings → <b>Hamkorlar (Partners)</b> bo‘limida Dengiz’ni olib tashlang. Shundan so‘ng Meta ma‘lumotini yangilay olmaymiz.</p>
+    <p>Batafsil: <a href="/maxfiylik/">Maxfiylik siyosati</a>.</p>
+  </section>
+
+  <section id="en" style="display:none">
+    <h1>Data deletion</h1>
+    <p>You can ask us to delete your data from Dengiz at any time:</p>
+    <ol>
+      <li>Email <a href="mailto:sellersunnatuzum@gmail.com?subject=Data%20deletion%20request">sellersunnatuzum@gmail.com</a> with the subject “Data deletion request”.</li>
+      <li>Include the <b>email</b> and <b>phone number</b> you registered with so we can identify your account.</li>
+      <li>We confirm the request within 3 business days and delete your data <b>within 30 days</b>.</li>
+    </ol>
+    <h2>What is deleted</h2>
+    <ul>
+      <li>Account data (name, email, phone, Telegram, business).</li>
+      <li>Statistics and change log imported from your Meta ad account.</li>
+      <li>Sales-stage records received from your CRM and connection tokens.</li>
+      <li>The Telegram notification link and stored Conversions API keys.</li>
+    </ul>
+    <h2>Revoking Meta access yourself</h2>
+    <p>In Business Manager → Business Settings → <b>Partners</b>, remove Dengiz. After that we can no longer refresh your Meta data.</p>
+    <p>More: <a href="/maxfiylik/#en">Privacy Policy</a>.</p>
+  </section>
+</main>
+<script>
+(function () {
+  function show() {
+    var en = location.hash === '#en';
+    document.getElementById('uz').style.display = en ? 'none' : '';
+    document.getElementById('en').style.display = en ? '' : 'none';
+    document.getElementById('l-uz').classList.toggle('on', !en);
+    document.getElementById('l-en').classList.toggle('on', en);
+    document.documentElement.lang = en ? 'en' : 'uz';
+  }
+  window.addEventListener('hashchange', show); show();
+})();
+</script>
+</body>
+</html>

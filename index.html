@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dengiz — AI targetolog, sifatli lid uchun</title>
+<meta name="description" content="AI Meta reklamangizni kuzatadi va amoCRM natijasidan o'rganadi: qaysi lid sotuvga aylanganini Meta'ga qaytaradi, muammo bo'lsa xabar beradi. Bepul boshlang.">
+<meta name="theme-color" content="#0A2F6B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>
+// Kirgan foydalanuvchi landingni ko'rmaydi: to'g'ridan-to'g'ri kabinetga. Kabinetdan faqat «Chiqish» bilan chiqiladi.
+try { if (localStorage.getItem('dg_auth')) location.replace('/kabinet/'); } catch (e) {}
+</script>
+</head>
+<body>
+<nav id="nav"><div class="wrap nav-in">
+  <a href="#top" class="logo"><span class="mark"><i></i><i></i><i></i></span>Dengiz</a>
+  <div class="links"><a href="#qanday" data-i="n1">Qanday ishlaydi</a><a href="#xavfsiz" data-i="n2">Xavfsizlik</a><a href="#pilot" data-i="n3">Pilot</a><a href="#savol" data-i="n4">Savollar</a><a href="/audit/" data-i="n5">Bepul audit</a></div>
+  <div class="right"><div class="lang"><button data-l="uz" class="on">UZ</button><button data-l="ru">RU</button></div><a href="/kirish/#royxat" class="btn sm" data-i="navcta">Bepul boshlash</a></div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" style="color:var(--aqua)" data-i="eyebrow">AI targetolog · Meta Ads + amoCRM</p>
+      <h1 data-i-html="h1">Lid emas, <em>sotuv</em> uchun.</h1>
+      <p class="lead" data-i="lead">AI reklamangizni kuzatadi va amoCRM’dagi natijadan o‘rganadi: qaysi lid sotuvga aylanganini Meta’ga qaytaradi, reklama aynan shunday mijozlarni qidiradi. Muammo bo‘lsa sizga xabar beradi.</p>
+      <div class="cta"><a href="/audit/" class="btn" data-i="cta1">Reklamamni tekshirish →</a><a href="#qanday" class="btn ghost" data-i="cta2">Qanday ishlaydi</a></div>
+      <p class="note" data-i="note">Hozir 3–5 ta biznes bilan pilot. Joylar cheklangan.</p>
+    </div>
+    <div class="mock" aria-hidden="true">
+      <div class="top"><span data-i="mk0">amoCRM → Meta</span><span data-i="mk1">Sxema</span></div>
+      <div class="chips"><span class="chip c1" data-i="s1">Yangi lid</span><span class="chip c2" data-i="s2">Sifatli</span><span class="chip c3" data-i="s3">Uchrashuv</span><span class="chip c4" data-i="s4">Sotuv</span></div>
+      <div class="step-m"><b>→</b><span data-i="mk2">Menejer bosqichni belgilaydi</span></div>
+      <div class="step-m"><b>→</b><span data-i="mk3">Signal Meta’ga qaytadi</span></div>
+      <div class="step-m"><b>→</b><span data-i="mk4">Reklama sifatli mijozni qidiradi</span></div>
+      <small data-i="mk5">Manba: amoCRM bosqichlari · Meta Conversions API</small>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 80 C 240 20, 480 140, 720 80 S 1200 20, 1440 80 V150 H0Z" fill="rgba(255,255,255,.07)"/>
+    <path d="M0 105 C 260 50, 520 150, 780 100 S 1200 60, 1440 105 V150 H0Z" fill="rgba(255,255,255,.12)"/>
+    <path d="M0 128 C 300 90, 560 160, 840 122 S 1250 100, 1440 128 V150 H0Z" fill="#ffffff"/>
+  </svg>
+</header>
+
+<section class="problem"><div class="wrap">
+  <div class="head rv"><p class="eyebrow" data-i="pe">Muammo</p><h2 data-i="ph">Meta lid sonini optimallaydi, sifatini emas</h2></div>
+  <div class="grid g3">
+    <div class="card rv"><h3 data-i="p1h">Lid ko‘p, sotuv kam</h3><p data-i="p1p">Reklama murojaat keltiradi, lekin ko‘pi sotuvga aylanmaydi. Hisobotda esa hammasi “lid” bo‘lib ko‘rinadi.</p></div>
+    <div class="card rv"><h3 data-i="p2h">Meta natijani ko‘rmaydi</h3><p data-i="p2p">Qaysi lid sifatli, qaysi biri sotuv bo‘lgani CRM’da qoladi. Reklama tizimi esa o‘rganish uchun faqat lidning o‘zini biladi.</p></div>
+    <div class="card rv"><h3 data-i="p3h">Qo‘lda har kuni qarash</h3><p data-i="p3p">Targetolog kampaniyalarni kuzatib, byudjetni qo‘lda o‘zgartiradi. Kechikish va xato pulga tushadi.</p></div>
+  </div>
+</div></section>
+
+<section class="foam" id="qanday"><div class="wrap">
+  <div class="head rv"><p class="eyebrow" data-i="he">Qanday ishlaydi</p><h2 data-i="hh">Sifat signali reklamaga qaytadi</h2><p data-i="hp">Bir marta ulaysiz, keyin tizim o‘zi ishlaydi.</p></div>
+  <div class="grid g4">
+    <div class="step rv"><div class="n">01</div><h3 data-i="h1h">Ulash</h3><p data-i="h1p">Meta va amoCRM’ni 5 qadamda ulaysiz. amoCRM’ga faqat o‘qish ruxsati beriladi.</p></div>
+    <div class="step rv"><div class="n">02</div><h3 data-i="h2h">Bosqichlar</h3><p data-i="h2p">Menejer amoCRM’da lidni belgilaydi: sifatli, uchrashuv, sotuv.</p></div>
+    <div class="step rv"><div class="n">03</div><h3 data-i="h3h">Signal</h3><p data-i="h3p">Bosqich Meta Conversions API orqali reklama tizimiga qaytadi.</p></div>
+    <div class="step rv"><div class="n">04</div><h3 data-i="h4h">Xabar va tavsiya</h3><p data-i="h4p">AI xarajat va natijani kuzatadi, muammo bo‘lsa xabar beradi va tavsiya qiladi. Qarorni siz qabul qilasiz.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head rv"><p class="eyebrow" data-i="le">Boshqaruv</p><h2 data-i="lh">AI xabar beradi, qaror sizda</h2></div>
+  <div class="grid g3">
+    <div class="card lvl rv"><span class="tag">1</span><h3 data-i="l1h">AI xabar beradi</h3><p data-i="l1p">Reklama yoki rolik o‘chib qolsa, byudjet kam qolsa, xarajat keskin oshsa yoki lid narxi yomonlashsa, darhol ogohlantiradi.</p></div>
+    <div class="card lvl main rv"><span class="tag">2</span><h3 data-i="l2h">Qaror sizda</h3><p data-i="l2p">Biznes egasi yoki targetolog qaror qabul qiladi. AI Meta reklamangizda hech narsani o‘zi o‘zgartirmaydi.</p></div>
+    <div class="card lvl rv"><span class="tag">3</span><h3 data-i="l3h">Sayt yoki Telegram</h3><p data-i="l3p">Ogohlantirish va kunlik hisobot saytda hamda Telegram botda keladi. Boshqarish ham shu yerdan.</p></div>
+  </div>
+</div></section>
+
+<section class="safe" id="xavfsiz"><div class="wrap">
+  <div class="head rv"><p class="eyebrow" data-i="xe">Xavfsizlik</p><h2 data-i="xh">Pulingiz va ma’lumotingiz nazoratda</h2><p data-i="xp">AI faqat ma’lumot va tavsiya beradi. Meta reklamangizda hech narsani o‘zi o‘zgartirmaydi.</p></div>
+  <div class="sgrid rv">
+    <div><b data-i="x1h">Byudjet kam qolsa xabar</b><span data-i="x1p">Byudjet tugab borayotganini oldindan aytamiz.</span></div>
+    <div><b data-i="x2h">Xarajat va holat signali</b><span data-i="x2p">Xarajat tez oshsa yoki reklama o‘chib qolsa, darhol xabar yuboramiz.</span></div>
+    <div><b data-i="x3h">amoCRM: faqat o‘qish</b><span data-i="x3p">CRM’dagi ma’lumotni o‘zgartirmaymiz. Telefon Meta’ga faqat hash ko‘rinishida boradi.</span></div>
+    <div><b data-i="x4h">Har harakat jurnalda</b><span data-i="x4p">Kim yoki qaysi AI qarori nimani o‘zgartirgani yozib boriladi.</span></div>
+    <div><b data-i="x5h">Istalgan vaqt uzish</b><span data-i="x5p">Ulanishni uzsangiz token o‘chadi, so‘rasangiz ma’lumot ham o‘chiriladi.</span></div>
+    <div><b data-i="x6h">Parol so‘ralmaydi</b><span data-i="x6p">Meta’ga ulash Facebook’ning rasmiy ruxsat oynasi orqali.</span></div>
+  </div>
+</div></section>
+
+<section class="contact" id="pilot"><div class="wrap cgrid">
+  <div class="rv">
+    <p class="eyebrow" data-i="ce">Pilot</p>
+    <h2 data-i="ch">Birinchi 5 biznesdan biri bo‘ling</h2>
+    <p data-i="cp">Hozir 3–5 ta biznes bilan boshlayapmiz. Meta reklamasi va amoCRM’i bor biznes mos keladi.</p>
+    <ul class="points"><li data-i="c1">Birinchi bosqichda faqat o‘qish: reklama va CRM natijasini tahlil qilamiz</li><li data-i="c2">Sifat signalini ulab, natijani raqamlarda o‘lchaymiz</li><li data-i="c3">Shartlar pilotda alohida kelishiladi</li></ul>
+  </div>
+  <form id="lead" class="rv" novalidate>
+    <div class="row">
+      <div class="f"><label for="name" data-i="fn">Ismingiz</label><input id="name" name="name" autocomplete="name" required maxlength="120"></div>
+      <div class="f"><label for="phone" data-i="fph">Telefon raqamingiz</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+998 90 123 45 67" required maxlength="25"></div>
+    </div>
+    <div class="row">
+      <div class="f"><label for="telegram"><span data-i="fta">Telegram username</span><span class="opt" data-i="opt">ixtiyoriy</span></label><input id="telegram" name="telegram" autocomplete="off" placeholder="@username" maxlength="64"></div>
+      <div class="f"><label for="budget"><span data-i="fbu">Oylik reklama byudjeti ($)</span><span class="opt" data-i="opt">ixtiyoriy</span></label><input id="budget" name="budget" inputmode="decimal" autocomplete="off" data-ph="phbu" placeholder="masalan, 500" maxlength="30"><div class="quick" id="quick" role="group" aria-label="$"><button type="button" data-v="100">$100</button><button type="button" data-v="300">$300</button><button type="button" data-v="500">$500</button><button type="button" data-v="1000">$1000</button><button type="button" data-v="3000">$3000+</button></div></div>
+    </div>
+    <div class="f"><label for="business"><span data-i="fb">Biznes nomi yoki Instagram</span><span class="opt" data-i="opt">ixtiyoriy</span></label><input id="business" name="business" maxlength="160"></div>
+    <div class="f"><label for="message"><span data-i="fm">Qisqacha yozing</span><span class="opt" data-i="opt">ixtiyoriy</span></label><textarea id="message" name="message" maxlength="700"></textarea></div>
+    <input class="hp" type="checkbox" name="website" tabindex="-1" aria-hidden="true">
+    <button class="btn" type="submit" id="send" data-i="fs">Joyimni band qilish</button>
+    <p class="msg" id="msg" role="status"></p>
+    <p class="small" data-i="fp">Ma’lumotlaringiz faqat siz bilan bog‘lanish uchun ishlatiladi.</p>
+  </form>
+</div></section>
+
+<section id="savol"><div class="wrap" style="max-width:820px">
+  <div class="head rv"><p class="eyebrow" data-i="qe">Savollar</p><h2 data-i="qh">Ko‘p so‘raladigan savollar</h2></div>
+  <details class="rv"><summary data-i="q1">Meta akkauntimga kirish xavfsizmi?</summary><p data-i="a1">Ulash Facebook’ning rasmiy ruxsat oynasi orqali bo‘ladi, parol so‘ralmaydi. Ruxsatni istalgan vaqt bekor qilishingiz mumkin.</p></details>
+  <details class="rv"><summary data-i="q2">CRM bo‘lmasa-chi?</summary><p data-i="a2">Sifat signali CRM bosqichlariga tayanadi, shuning uchun hozircha amoCRM kerak. Boshqa CRM’lar keyinroq.</p></details>
+  <details class="rv"><summary data-i="q3">Natija kafolatlanadimi?</summary><p data-i="a3">Yo‘q, va’da bermaymiz. Pilotda boshlang‘ich holatni o‘lchab, o‘zgarishni raqamlarda ko‘rsatamiz.</p></details>
+  <details class="rv"><summary data-i="q4">Narxi qancha?</summary><p data-i="a4">Pilot shartlari alohida kelishiladi. Keyin oylik obuna rejalashtirilgan.</p></details>
+</div></section>
+
+<footer><div class="wrap fin">
+  <a href="#top" class="logo"><span class="mark"><i></i><i></i><i></i></span>Dengiz</a>
+  <span data-i="ft">AI targetolog · O‘zbekiston</span>
+  <span><a href="/maxfiylik/">Maxfiylik</a> · <a href="/ochirish/">Ma‘lumotni o‘chirish</a> · © <span id="yr"></span> Dengiz</span>
+</div></footer>
+
+<script src="/config.js"></script>
+<script src="/phone.js"></script>
+<script src="/i18n.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
